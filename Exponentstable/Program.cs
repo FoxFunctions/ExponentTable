@@ -2,13 +2,13 @@
 
 namespace Exponentstable
 {
-    public class Program
+    public sealed class Program
       {
+        static bool runAgain = true;
+        static int userInteger = 0;
 
-        public static void Main(string[] args)
+        public static void Main()
         {
-            bool runAgain = true;
-            int userInteger = 0;
             Console.WriteLine("Welcome to the Exponent table.");
             while (runAgain)
             {
@@ -16,25 +16,36 @@ namespace Exponentstable
                 {
                     Console.WriteLine();
                     Console.WriteLine("Please enter an integer greater than zero");
+                    Console.WriteLine();
                     int userInput = int.Parse(Console.ReadLine());
                       if (userInput <= 0)
                     {
                         Console.WriteLine("That integer is less than or equal to 0. Please enter an integer that is greater than 0");
                         continue;
-                    } else if (userInput >0 && userInput <= 2147483647)
+                    }
+                    else if (userInput > 1290)
+                    {
+                        Console.WriteLine();
+                        Console.WriteLine("This number is too large. Please choose a smaller number");
+                        continue;
+                    }
+                    else
                     {
                         userInteger = userInput;
+                        Console.WriteLine();
+                        Console.WriteLine($"The following table will show you the square and cube values for the numbers 1 - {userInteger}.");
                         break;
                     }
                 }
                 Console.WriteLine();
-                Console.Write("Numbers" + "    " + "Squares" + "      " + "Cubes");
+                Console.Write("Numbers" + "     \t" + "Squares" + "     \t" + "Cubes");
                 Console.WriteLine();
-                Console.Write("=======" + "    " + "=======" + "      " + "=======");
+                Console.Write("=======" + "     \t" + "=======" + "     \t" + "=======");
                 Console.WriteLine();
                 for (int i = 1; i <= userInteger; i++)
                 {
-                    Console.WriteLine(i + "      " + "    " + Math.Pow(i, 2) + "     " + "       " + Math.Pow(i, 3));
+                    //Console.WriteLine(i + "      " + "    " + Math.Pow(i, 2) + "     " + "       " + Math.Pow(i, 3));
+                    Console.WriteLine(i + "\t" + "\t" + Math.Pow(i, 2) + "\t" + "\t" + Math.Pow(i, 3));
                 }
                 while (true)
                 {
